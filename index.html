@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 style="text-align: center">
+      upload twelve images using javaScript base-64
+    </h1>
+
+    <div class="images-container">
+      <div class="row">
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-1" />
+            <div class="card-body">
+              <label for="image-1">
+                image one
+                <input type="file" id="image-1" name="image-1" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-2" />
+            <div class="card-body">
+              <label for="image-2">
+                image two
+                <input type="file" id="image-2" name="image-2" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-3" />
+            <div class="card-body">
+              <label for="image-3">
+                image three
+                <input type="file" id="image-3" name="image-3" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-4" />
+            <div class="card-body">
+              <label for="image-4">
+                image four
+                <input type="file" id="image-4" name="image-4" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-5" />
+            <div class="card-body">
+              <label for="image-5">
+                image five
+                <input type="file" id="image-5" name="image-5" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-6" />
+            <div class="card-body">
+              <label for="image-6">
+                image six
+                <input type="file" id="image-6" name="image-6" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-7" />
+            <div class="card-body">
+              <label for="image-7">
+                image seven
+                <input type="file" id="image-7" name="image-7" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-8" />
+            <div class="card-body">
+              <label for="image-8">
+                image eight
+                <input type="file" id="image-8" name="image-8" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-9" />
+            <div class="card-body">
+              <label for="image-9">
+                image nine
+                <input type="file" id="image-9" name="image-9" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-10" />
+            <div class="card-body">
+              <label for="image-10">
+                image ten
+                <input type="file" id="image-10" name="image-10" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-11" />
+            <div class="card-body">
+              <label for="image-11">
+                image eleven
+                <input type="file" id="image-11" name="image-11" />
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-2">
+          <div class="card">
+            <img src="" class="card-img-top" alt="" id="image-image-12" />
+            <div class="card-body">
+              <label for="image-12">
+                image twelve
+                <input type="file" id="image-12" name="image-12" />
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const fileInpute = document.querySelectorAll("input ");
+      const cardImage = document.querySelectorAll(".card");
+      cardImage.forEach((card) => {
+        card.classList.add("mt-3");
+      });
+
+      fileInpute.forEach((input) => {
+        input.addEventListener("change", (e) => {
+          const file = e.target.files[0];
+          const reader = new FileReader();
+          reader.readAsDataURL(file);
+          const image = document.querySelector(`#image-${e.target.id}`);
+          image.classList.add("d-block");
+          image.src = URL.createObjectURL(file);
+        });
+      });
+    </script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+      integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+      integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
